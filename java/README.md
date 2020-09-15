@@ -19,7 +19,14 @@ Non-Bundled Plugins: PlantUML integration, CheckStyle-IDEA, Lombook Plugin, org.
 ```
 Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
 Maven home: C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2\plugins\maven\lib\maven3
-Java version: 11.0.7, vendor: JetBrains s.r.o., runtime: C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2\jbr
+Java version: 11.0.2, vendor: Oracle Corporation, runtime: D:\enedis\mosaic\tools\jdk-11.0.2
 Default locale: fr_FR, platform encoding: UTF-8
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+```
+
+### Java
+```
+openjdk 11.0.2 2019-01-15
+OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 ```
