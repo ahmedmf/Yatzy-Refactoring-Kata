@@ -2,25 +2,32 @@ package fr.dojo.kata.yatzy.scoring;
 
 import fr.dojo.kata.yatzy.YatzyDiceRoll;
 import fr.dojo.kata.yatzy.scoring.YatzyScoringHelper;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@RunWith(JUnitParamsRunner.class)
 public class YatzyScoringHelperTest {
 
     @Test
-    public void chance_scores_sum_of_all_dice() {
+    @Parameters({
+            "15, 2, 3, 4, 5, 1",
+            "16, 3, 3, 4, 5, 1",
+            "0, 0, 0, 0, 0, 0"
+    })
+    public void chance_scores_sum_of_all_dice(int expected, int d1, int d2, int d3, int d4, int d5) {
         // Arrange
-        int expected = 15;
-        YatzyDiceRoll diceRoll = new YatzyDiceRoll(2,3,4,5,1);
+        YatzyDiceRoll diceRoll = new YatzyDiceRoll(d1, d2, d3, d4, d5);
 
         // Act
         int actual = YatzyScoringHelper.chance(diceRoll);
 
         // Assert
         assertEquals(expected, actual);
-        assertEquals(16, YatzyScoringHelper.chance(new YatzyDiceRoll(3,3,4,5,1)));
     }
 
     @Test public void yatzy_scores_50() {
