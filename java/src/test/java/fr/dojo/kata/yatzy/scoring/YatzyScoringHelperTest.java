@@ -67,11 +67,24 @@ public class YatzyScoringHelperTest {
         assertEquals(expected, actual);
     }
 
-    @Test public void testOnes() {
-        assertTrue(YatzyScoringHelper.ones(1,2,3,4,5) == 1);
-        assertEquals(2, YatzyScoringHelper.ones(1,2,1,4,5));
-        assertEquals(0, YatzyScoringHelper.ones(6,2,2,4,5));
-        assertEquals(4, YatzyScoringHelper.ones(1,2,1,1,1));
+    @Test
+    @Parameters(method = "testOnesParams")
+    public void testOnes(int expected, YatzyDiceRoll diceRoll) {
+        // Arrange
+
+        // Act
+        int actual = YatzyScoringHelper.ones(diceRoll);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+    public Object testOnesParams() {
+        return new Object[] {
+                new Object[] {1, new YatzyDiceRoll(1,2,3,4,5)},
+                new Object[] {2, new YatzyDiceRoll(1,2,1,4,5)},
+                new Object[] {0, new YatzyDiceRoll(6,2,2,4,5)},
+                new Object[] {4, new YatzyDiceRoll(1,2,1,1,1)}
+        };
     }
 
     @Test
