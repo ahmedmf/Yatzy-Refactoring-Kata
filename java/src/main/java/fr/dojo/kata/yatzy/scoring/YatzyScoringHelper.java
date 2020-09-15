@@ -16,15 +16,24 @@ public class YatzyScoringHelper {
         return total;
     }
 
-    public static int yatzy(int... dice)
+    public static int yatzy(YatzyDiceRoll diceRoll)
     {
-        int[] counts = new int[6];
-        for (int die : dice)
-            counts[die-1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
-                return 50;
-        return 0;
+        int dieRef = diceRoll.getD1();
+
+        int[] dice = {
+                diceRoll.getD2(),
+                diceRoll.getD3(),
+                diceRoll.getD4(),
+                diceRoll.getD5()
+        };
+
+        for (int die : dice) {
+            if (die != dieRef) {
+                return 0;
+            }
+        }
+
+        return 50;
     }
 
     public static int ones(int d1, int d2, int d3, int d4, int d5) {

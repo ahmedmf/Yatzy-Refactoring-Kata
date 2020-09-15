@@ -12,6 +12,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(JUnitParamsRunner.class)
 public class YatzyScoringHelperTest {
 
+    // TODO : Tester la levée d'exception lorsque la valeur des dés sors de l'interval [0:6]
+
     @Test
     @Parameters(method = "chanceScoresSumOfAllDiceParams")
     public void chanceScoresSumOfAllDice(int expected, YatzyDiceRoll diceRoll) {
@@ -33,25 +35,33 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void yatzyScoresFifty() {
+    @Parameters(method = "yatzyScoresFiftyParams")
+    public void yatzyScoresFifty(int expected, YatzyDiceRoll diceRoll) {
         // Arrange
-        int expected = 50;
 
         // Act
-        int actual = YatzyScoringHelper.yatzy(4,4,4,4,4);
+        int actual = YatzyScoringHelper.yatzy(diceRoll);
 
         // Assert
         assertEquals(expected, actual);
-        assertEquals(expected, YatzyScoringHelper.yatzy(6,6,6,6,6));
+        assertEquals(expected, YatzyScoringHelper.yatzy(diceRoll));
+    }
+    // Paramètres du test
+    public Object yatzyScoresFiftyParams() {
+        return new Object[] {
+                new Object[] {50, new YatzyDiceRoll(4,4,4,4,4)},
+                new Object[] {50, new YatzyDiceRoll(6,6,6,6,6)}
+        };
     }
 
     @Test
     public void yatzyScoresZero() {
         // Arrange
         int expected = 0;
+        YatzyDiceRoll diceRoll = new YatzyDiceRoll(6,6,6,6,3);
 
         // Act
-        int actual = YatzyScoringHelper.yatzy(6,6,6,6,3);
+        int actual = YatzyScoringHelper.yatzy(diceRoll);
 
         // Assert
         assertEquals(expected, actual);
