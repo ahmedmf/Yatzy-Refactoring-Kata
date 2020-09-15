@@ -33,12 +33,28 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void yatzy_scores_50() {
+    public void yatzyScoresFifty() {
+        // Arrange
         int expected = 50;
+
+        // Act
         int actual = YatzyScoringHelper.yatzy(4,4,4,4,4);
+
+        // Assert
         assertEquals(expected, actual);
-        assertEquals(50, YatzyScoringHelper.yatzy(6,6,6,6,6));
-        assertEquals(0, YatzyScoringHelper.yatzy(6,6,6,6,3));
+        assertEquals(expected, YatzyScoringHelper.yatzy(6,6,6,6,6));
+    }
+
+    @Test
+    public void yatzyScoresZero() {
+        // Arrange
+        int expected = 0;
+
+        // Act
+        int actual = YatzyScoringHelper.yatzy(6,6,6,6,3);
+
+        // Assert
+        assertEquals(expected, actual);
     }
 
     @Test public void test_1s() {
