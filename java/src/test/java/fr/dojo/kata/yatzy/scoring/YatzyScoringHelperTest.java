@@ -88,19 +88,19 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void test_2s() {
+    public void testTwos() {
         assertEquals(4, YatzyScoringHelper.twos(1,2,3,2,6));
         assertEquals(10, YatzyScoringHelper.twos(2,2,2,2,2));
     }
 
     @Test
-    public void test_threes() {
+    public void testThrees() {
         assertEquals(6, YatzyScoringHelper.threes(1,2,3,2,3));
         assertEquals(12, YatzyScoringHelper.threes(2,3,3,3,3));
     }
 
     @Test
-    public void fours_test()
+    public void testFours()
     {
         assertEquals(12, new YatzyScoringHelper(4,4,4,5,5).fours());
         assertEquals(8, new YatzyScoringHelper(4,4,5,5,5).fours());
@@ -108,14 +108,14 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void fives() {
+    public void testFives() {
         assertEquals(10, new YatzyScoringHelper(4,4,4,5,5).fives());
         assertEquals(15, new YatzyScoringHelper(4,4,5,5,5).fives());
         assertEquals(20, new YatzyScoringHelper(4,5,5,5,5).fives());
     }
 
     @Test
-    public void sixes_test() {
+    public void testSixes() {
         assertEquals(0, new YatzyScoringHelper(4,4,4,5,5).sixes());
         assertEquals(6, new YatzyScoringHelper(4,4,6,5,5).sixes());
         assertEquals(18, new YatzyScoringHelper(6,5,6,6,5).sixes());
