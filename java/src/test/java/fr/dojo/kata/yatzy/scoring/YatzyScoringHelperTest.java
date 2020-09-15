@@ -1,5 +1,6 @@
 package fr.dojo.kata.yatzy.scoring;
 
+import fr.dojo.kata.yatzy.YatzyDiceRoll;
 import fr.dojo.kata.yatzy.scoring.YatzyScoringHelper;
 import org.junit.Test;
 
@@ -10,10 +11,16 @@ public class YatzyScoringHelperTest {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
+        // Arrange
         int expected = 15;
-        int actual = YatzyScoringHelper.chance(2,3,4,5,1);
+        YatzyDiceRoll diceRoll = new YatzyDiceRoll(2,3,4,5,1);
+
+        // Act
+        int actual = YatzyScoringHelper.chance(diceRoll);
+
+        // Assert
         assertEquals(expected, actual);
-        assertEquals(16, YatzyScoringHelper.chance(3,3,4,5,1));
+        assertEquals(16, YatzyScoringHelper.chance(new YatzyDiceRoll(3,3,4,5,1)));
     }
 
     @Test public void yatzy_scores_50() {
