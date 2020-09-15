@@ -1,7 +1,6 @@
 package fr.dojo.kata.yatzy.scoring;
 
 import fr.dojo.kata.yatzy.YatzyDiceRoll;
-import fr.dojo.kata.yatzy.scoring.YatzyScoringHelper;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
@@ -14,14 +13,9 @@ import static org.junit.Assert.assertTrue;
 public class YatzyScoringHelperTest {
 
     @Test
-    @Parameters({
-            "15, 2, 3, 4, 5, 1",
-            "16, 3, 3, 4, 5, 1",
-            "0, 0, 0, 0, 0, 0"
-    })
-    public void chance_scores_sum_of_all_dice(int expected, int d1, int d2, int d3, int d4, int d5) {
+    @Parameters(method = "chance_scores_sum_of_all_dice_params")
+    public void chance_scores_sum_of_all_dice(int expected, YatzyDiceRoll diceRoll) {
         // Arrange
-        YatzyDiceRoll diceRoll = new YatzyDiceRoll(d1, d2, d3, d4, d5);
 
         // Act
         int actual = YatzyScoringHelper.chance(diceRoll);
@@ -29,8 +23,17 @@ public class YatzyScoringHelperTest {
         // Assert
         assertEquals(expected, actual);
     }
+    // Paramètres du test chance_scores_sum_of_all_dice
+    public Object chance_scores_sum_of_all_dice_params() {
+        return new Object[] {
+          new Object[] {15, new YatzyDiceRoll(2, 3, 4, 5, 1)},
+          new Object[] {16, new YatzyDiceRoll(3, 3, 4, 5, 1)},
+          new Object[] {0, new YatzyDiceRoll(0, 0, 0, 0, 0)}
+        };
+    }
 
-    @Test public void yatzy_scores_50() {
+    @Test
+    public void yatzy_scores_50() {
         int expected = 50;
         int actual = YatzyScoringHelper.yatzy(4,4,4,4,4);
         assertEquals(expected, actual);
