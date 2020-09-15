@@ -13,8 +13,8 @@ import static org.junit.Assert.assertTrue;
 public class YatzyScoringHelperTest {
 
     @Test
-    @Parameters(method = "chance_scores_sum_of_all_dice_params")
-    public void chance_scores_sum_of_all_dice(int expected, YatzyDiceRoll diceRoll) {
+    @Parameters(method = "chanceScoresSumOfAllDiceParams")
+    public void chanceScoresSumOfAllDice(int expected, YatzyDiceRoll diceRoll) {
         // Arrange
 
         // Act
@@ -23,8 +23,8 @@ public class YatzyScoringHelperTest {
         // Assert
         assertEquals(expected, actual);
     }
-    // Paramètres du test chance_scores_sum_of_all_dice
-    public Object chance_scores_sum_of_all_dice_params() {
+    // Paramètres du test chanceScoresSumOfAllDice
+    public Object chanceScoresSumOfAllDiceParams() {
         return new Object[] {
           new Object[] {15, new YatzyDiceRoll(2, 3, 4, 5, 1)},
           new Object[] {16, new YatzyDiceRoll(3, 3, 4, 5, 1)},
