@@ -152,49 +152,49 @@ public class YatzyScoringHelperTest {
 
     @Test
     public void one_pair() {
-        assertEquals(6, YatzyScoringHelper.score_pair(3,4,3,5,6));
-        assertEquals(10, YatzyScoringHelper.score_pair(5,3,3,3,5));
-        assertEquals(12, YatzyScoringHelper.score_pair(5,3,6,6,5));
+        assertEquals(6, YatzyScoringHelper.score_pair(new YatzyDiceRoll(3,4,3,5,6)));
+        assertEquals(10, YatzyScoringHelper.score_pair(new YatzyDiceRoll(5,3,3,3,5)));
+        assertEquals(12, YatzyScoringHelper.score_pair(new YatzyDiceRoll(5,3,6,6,5)));
     }
 
     @Test
     public void two_Pair() {
-        assertEquals(16, YatzyScoringHelper.two_pair(3,3,5,4,5));
-        assertEquals(16, YatzyScoringHelper.two_pair(3,3,5,5,5));
+        assertEquals(16, YatzyScoringHelper.two_pair(new YatzyDiceRoll(3,3,5,4,5)));
+        assertEquals(16, YatzyScoringHelper.two_pair(new YatzyDiceRoll(3,3,5,5,5)));
     }
 
     @Test
     public void three_of_a_kind()
     {
-        assertEquals(9, YatzyScoringHelper.three_of_a_kind(3,3,3,4,5));
-        assertEquals(15, YatzyScoringHelper.three_of_a_kind(5,3,5,4,5));
-        assertEquals(9, YatzyScoringHelper.three_of_a_kind(3,3,3,3,5));
+        assertEquals(9, YatzyScoringHelper.three_of_a_kind(new YatzyDiceRoll(3,3,3,4,5)));
+        assertEquals(15, YatzyScoringHelper.three_of_a_kind(new YatzyDiceRoll(5,3,5,4,5)));
+        assertEquals(9, YatzyScoringHelper.three_of_a_kind(new YatzyDiceRoll(3,3,3,3,5)));
     }
 
     @Test
     public void four_of_a_knd() {
-        assertEquals(12, YatzyScoringHelper.four_of_a_kind(3,3,3,3,5));
-        assertEquals(20, YatzyScoringHelper.four_of_a_kind(5,5,5,4,5));
-        assertEquals(9, YatzyScoringHelper.three_of_a_kind(3,3,3,3,3));
+        assertEquals(12, YatzyScoringHelper.four_of_a_kind(new YatzyDiceRoll(3,3,3,3,5)));
+        assertEquals(20, YatzyScoringHelper.four_of_a_kind(new YatzyDiceRoll(5,5,5,4,5)));
+        assertEquals(9, YatzyScoringHelper.three_of_a_kind(new YatzyDiceRoll(3,3,3,3,3)));
     }
 
     @Test
     public void smallStraight() {
-        assertEquals(15, YatzyScoringHelper.smallStraight(1,2,3,4,5));
-        assertEquals(15, YatzyScoringHelper.smallStraight(2,3,4,5,1));
-        assertEquals(0, YatzyScoringHelper.smallStraight(1,2,2,4,5));
+        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1,2,3,4,5)));
+        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(2,3,4,5,1)));
+        assertEquals(0, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1,2,2,4,5)));
     }
 
     @Test
     public void largeStraight() {
-        assertEquals(20, YatzyScoringHelper.largeStraight(6,2,3,4,5));
-        assertEquals(20, YatzyScoringHelper.largeStraight(2,3,4,5,6));
-        assertEquals(0, YatzyScoringHelper.largeStraight(1,2,2,4,5));
+        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(6,2,3,4,5)));
+        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(2,3,4,5,6)));
+        assertEquals(0, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(1,2,2,4,5)));
     }
 
     @Test
     public void fullHouse() {
-        assertEquals(18, YatzyScoringHelper.fullHouse(6,2,2,2,6));
-        assertEquals(0, YatzyScoringHelper.fullHouse(2,3,4,5,6));
+        assertEquals(18, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(6,2,2,2,6)));
+        assertEquals(0, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(2,3,4,5,6)));
     }
 }
