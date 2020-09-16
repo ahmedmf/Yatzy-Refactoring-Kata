@@ -89,8 +89,8 @@ public class YatzyScoringHelperTest {
 
     @Test
     public void testTwos() {
-        assertEquals(4, YatzyScoringHelper.twos(1,2,3,2,6));
-        assertEquals(10, YatzyScoringHelper.twos(2,2,2,2,2));
+        assertEquals(4, YatzyScoringHelper.twos(new YatzyDiceRoll(1,2,3,2,6)));
+        assertEquals(10, YatzyScoringHelper.twos(new YatzyDiceRoll(2,2,2,2,2)));
     }
 
     @Test
