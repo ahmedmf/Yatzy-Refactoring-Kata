@@ -1,4 +1,4 @@
-package fr.dojo.kata.yatzy;
+package fr.dojo.kata.yatzy.roll;
 
 import lombok.Getter;
 
@@ -20,10 +20,6 @@ public class YatzyDiceRoll {
         this.d3 = d3;
         this.d4 = d4;
         this.d5 = d5;
-    }
-
-    public int[] getDiceAsArray() {
-        return new int[]{d1, d2, d3, d4, d5};
     }
 
     @Override
