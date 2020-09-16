@@ -88,9 +88,15 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testTwos() {
-        assertEquals(4, YatzyScoringHelper.twos(new YatzyDiceRoll(1,2,3,2,6)));
-        assertEquals(10, YatzyScoringHelper.twos(new YatzyDiceRoll(2,2,2,2,2)));
+    @Parameters(method = "testTwosParams")
+    public void testTwos(int expected, YatzyDiceRoll diceRoll) {
+        assertEquals(expected, YatzyScoringHelper.twos(diceRoll));
+    }
+    public Object testTwosParams() {
+        return new Object[] {
+                new Object[] {4, new YatzyDiceRoll(1,2,3,2,6)},
+                new Object[] {10, new YatzyDiceRoll(2,2,2,2,2)}
+        };
     }
 
     @Test
