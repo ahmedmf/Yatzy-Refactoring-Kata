@@ -12,4 +12,15 @@ public class YatzyDiceRollUtils {
 
         return count * value;
     }
+
+    public static int getTotalFromDiceValues(YatzyDiceRoll diceRoll) {
+        int total = 0;
+        total += diceRoll.getD1();
+        total += diceRoll.getD2();
+        total += diceRoll.getD3();
+        total += diceRoll.getD4();
+        total += diceRoll.getD5();
+
+        return total;
+    }
 }

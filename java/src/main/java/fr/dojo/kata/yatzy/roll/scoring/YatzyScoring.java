@@ -6,14 +6,7 @@ import fr.dojo.kata.yatzy.roll.YatzyDiceRollUtils;
 public class YatzyScoring {
 
     public static int chance(YatzyDiceRoll diceRoll) {
-        int total = 0;
-        total += diceRoll.getD1();
-        total += diceRoll.getD2();
-        total += diceRoll.getD3();
-        total += diceRoll.getD4();
-        total += diceRoll.getD5();
-
-        return total;
+        return YatzyDiceRollUtils.getTotalFromDiceValues(diceRoll);
     }
 
     public static int yatzy(YatzyDiceRoll diceRoll) {
