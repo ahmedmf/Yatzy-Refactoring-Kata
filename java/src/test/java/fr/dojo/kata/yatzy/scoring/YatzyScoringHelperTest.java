@@ -213,10 +213,17 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testSmallStraight() {
-        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1, 2, 3, 4, 5)));
-        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(2, 3, 4, 5, 1)));
-        assertEquals(0, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1, 2, 2, 4, 5)));
+    @Parameters(method = "testSmallStraightParams")
+    public void testSmallStraight(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.smallStraight(diceRoll);
+        assertEquals(expected, actual);
+    }
+    public Object testSmallStraightParams() {
+        return new Object[]{
+                new Object[]{15, new YatzyDiceRoll(1, 2, 3, 4, 5)},
+                new Object[]{15, new YatzyDiceRoll(2, 3, 4, 5, 1)},
+                new Object[]{0, new YatzyDiceRoll(1, 2, 2, 4, 5)}
+        };
     }
 
     @Test
