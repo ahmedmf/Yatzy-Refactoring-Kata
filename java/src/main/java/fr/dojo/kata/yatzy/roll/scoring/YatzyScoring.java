@@ -49,7 +49,7 @@ public class YatzyScoring {
     public static int scorePair(YatzyDiceRoll diceRoll) {
         TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortNValues(2, diceRoll);
 
-        if (pairValues.size() < 1) {
+        if (pairValues.isEmpty()) {
             return 0;
         }
 
@@ -74,7 +74,7 @@ public class YatzyScoring {
     public static int threeOfAKind(YatzyDiceRoll diceRoll) {
         TreeSet<Integer> tripletValues = YatzyDiceRollUtils.extractAndSortNValues(3, diceRoll);
 
-        if (tripletValues.size() < 1) {
+        if (tripletValues.isEmpty()) {
             return 0;
         }
 
@@ -86,7 +86,7 @@ public class YatzyScoring {
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {
         TreeSet<Integer> quadrupletValues = YatzyDiceRollUtils.extractAndSortNValues(4, diceRoll);
 
-        if (quadrupletValues.size() < 1) {
+        if (quadrupletValues.isEmpty()) {
             return 0;
         }
 
@@ -126,11 +126,11 @@ public class YatzyScoring {
             return 0;
         }
 
-        if (tripletValues.size() < 1) {
+        if (tripletValues.isEmpty()) {
             return 0;
         }
 
-        if (pairValues.size() < 1) {
+        if (pairValues.isEmpty()) {
             return 0;
         }
 
