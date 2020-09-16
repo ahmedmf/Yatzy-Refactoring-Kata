@@ -22,10 +22,6 @@ public class YatzyDiceRoll {
         this.d5 = d5;
     }
 
-    public int[] getDiceAsArray() {
-        return new int[]{d1, d2, d3, d4, d5};
-    }
-
     @Override
     public String toString() {
         return "YatzyDiceRoll{" +

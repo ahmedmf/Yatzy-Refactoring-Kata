@@ -4,7 +4,7 @@ public class YatzyDiceRollUtils {
     public static int getScoreFromValue(int value, YatzyDiceRoll diceRoll) {
         int count = 0;
 
-        for (int die : diceRoll.getDiceAsArray()) {
+        for (int die : YatzyDiceRollUtils.getDiceAsArray(diceRoll)) {
             if (die == value) {
                 count++;
             }
