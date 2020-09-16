@@ -1,8 +1,8 @@
-package fr.dojo.kata.yatzy.scoring;
+package fr.dojo.kata.yatzy.roll.scoring;
 
-import fr.dojo.kata.yatzy.YatzyDiceRoll;
+import fr.dojo.kata.yatzy.roll.YatzyDiceRoll;
 
-public class YatzyScoringHelper {
+public class YatzyScoring {
 
     public static int chance(YatzyDiceRoll diceRoll) {
         int total = 0;

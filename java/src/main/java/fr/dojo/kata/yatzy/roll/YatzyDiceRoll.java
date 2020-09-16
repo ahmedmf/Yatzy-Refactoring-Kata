@@ -1,4 +1,4 @@
-package fr.dojo.kata.yatzy;
+package fr.dojo.kata.yatzy.roll;
 
 import lombok.Getter;
 
