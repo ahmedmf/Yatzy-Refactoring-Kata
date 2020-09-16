@@ -70,7 +70,7 @@ public class YatzyScoringHelper {
         return getScoreFromValue(6, diceRoll);
     }
 
-    public static int score_pair(YatzyDiceRoll diceRoll) {
+    public static int scorePair(YatzyDiceRoll diceRoll) {
         int[] counts = new int[6];
         counts[diceRoll.getD1() - 1]++;
         counts[diceRoll.getD2() - 1]++;
@@ -84,7 +84,7 @@ public class YatzyScoringHelper {
         return 0;
     }
 
-    public static int two_pair(YatzyDiceRoll diceRoll) {
+    public static int twoPair(YatzyDiceRoll diceRoll) {
         int[] counts = new int[6];
         counts[diceRoll.getD1() - 1]++;
         counts[diceRoll.getD2() - 1]++;
@@ -104,7 +104,7 @@ public class YatzyScoringHelper {
             return 0;
     }
 
-    public static int four_of_a_kind(YatzyDiceRoll diceRoll) {
+    public static int fourOfAKind(YatzyDiceRoll diceRoll) {
         int[] tallies;
         tallies = new int[6];
         tallies[diceRoll.getD1() - 1]++;
@@ -118,7 +118,7 @@ public class YatzyScoringHelper {
         return 0;
     }
 
-    public static int three_of_a_kind(YatzyDiceRoll diceRoll) {
+    public static int threeOfAKind(YatzyDiceRoll diceRoll) {
         int[] t;
         t = new int[6];
         t[diceRoll.getD1() - 1]++;
