@@ -73,17 +73,15 @@ public class YatzyScoring {
     }
 
     public static int threeOfAKind(YatzyDiceRoll diceRoll) {
-        int[] t;
-        t = new int[6];
-        t[diceRoll.getD1() - 1]++;
-        t[diceRoll.getD2() - 1]++;
-        t[diceRoll.getD3() - 1]++;
-        t[diceRoll.getD4() - 1]++;
-        t[diceRoll.getD5() - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (t[i] >= 3)
-                return (i + 1) * 3;
-        return 0;
+        TreeSet<Integer> tripletValues = YatzyDiceRollUtils.extractAndSortNValues(3, diceRoll);
+
+        if (tripletValues.size() < 1) {
+            return 0;
+        }
+
+        int highestTripletValue = tripletValues.pollLast();
+
+        return highestTripletValue + highestTripletValue + highestTripletValue;
     }
 
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {
