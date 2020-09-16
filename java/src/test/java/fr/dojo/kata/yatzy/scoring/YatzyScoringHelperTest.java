@@ -176,6 +176,7 @@ public class YatzyScoringHelperTest {
     public void testTwoPair(int expected, YatzyDiceRoll diceRoll) {
         assertEquals(expected, YatzyScoringHelper.twoPair(diceRoll));
     }
+
     public Object testTwoPairParams() {
         return new Object[]{
                 new Object[]{16, new YatzyDiceRoll(3, 3, 5, 4, 5)},
@@ -189,6 +190,7 @@ public class YatzyScoringHelperTest {
         int actual = YatzyScoringHelper.threeOfAKind(diceRoll);
         assertEquals(expected, actual);
     }
+
     public Object testThreeOfAKindParams() {
         return new Object[]{
                 new Object[]{9, new YatzyDiceRoll(3, 3, 3, 4, 5)},
@@ -204,6 +206,7 @@ public class YatzyScoringHelperTest {
         int actual = YatzyScoringHelper.fourOfAKind(diceRoll);
         assertEquals(expected, actual);
     }
+
     public Object testFourOfAKindParams() {
         return new Object[]{
                 new Object[]{12, new YatzyDiceRoll(3, 3, 3, 3, 5)},
@@ -218,6 +221,7 @@ public class YatzyScoringHelperTest {
         int actual = YatzyScoringHelper.smallStraight(diceRoll);
         assertEquals(expected, actual);
     }
+
     public Object testSmallStraightParams() {
         return new Object[]{
                 new Object[]{15, new YatzyDiceRoll(1, 2, 3, 4, 5)},
@@ -227,10 +231,18 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testLargeStraight() {
-        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(6, 2, 3, 4, 5)));
-        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(2, 3, 4, 5, 6)));
-        assertEquals(0, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(1, 2, 2, 4, 5)));
+    @Parameters(method = "testLargeStraightParams")
+    public void testLargeStraight(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.largeStraight(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testLargeStraightParams() {
+        return new Object[]{
+                new Object[]{20, new YatzyDiceRoll(6, 2, 3, 4, 5)},
+                new Object[]{20, new YatzyDiceRoll(2, 3, 4, 5, 6)},
+                new Object[]{0, new YatzyDiceRoll(1, 2, 2, 4, 5)}
+        };
     }
 
     @Test
