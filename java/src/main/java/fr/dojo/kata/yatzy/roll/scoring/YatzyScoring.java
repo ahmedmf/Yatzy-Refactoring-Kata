@@ -12,9 +12,7 @@ public class YatzyScoring {
     public static int yatzy(YatzyDiceRoll diceRoll) {
         int dieRef = diceRoll.getD1();
 
-        int[] dice = YatzyDiceRollUtils.getDiceAsArray(diceRoll);
-
-        for (int die : dice) {
+        for (int die : YatzyDiceRollUtils.getDiceAsArray(diceRoll)) {
             if (die != dieRef) {
                 return 0;
             }
