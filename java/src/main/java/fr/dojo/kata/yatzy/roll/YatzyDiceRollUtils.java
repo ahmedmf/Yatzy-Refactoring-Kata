@@ -1,5 +1,6 @@
 package fr.dojo.kata.yatzy.roll;
 
+import java.util.Arrays;
 import java.util.TreeSet;
 
 public class YatzyDiceRollUtils {
@@ -67,5 +68,13 @@ public class YatzyDiceRollUtils {
             }
         }
         return nValues;
+    }
+
+    public static int[] getDiceAsOrderedArray(YatzyDiceRoll diceRoll) {
+        int[] unorderedDiceAsArray = YatzyDiceRollUtils.getDiceAsArray(diceRoll);
+
+        Arrays.sort(unorderedDiceAsArray);
+
+        return unorderedDiceAsArray;
     }
 }

@@ -3,6 +3,7 @@ package fr.dojo.kata.yatzy.roll.scoring;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRoll;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRollUtils;
 
+import java.util.Arrays;
 import java.util.TreeSet;
 
 public class YatzyScoring {
@@ -97,19 +98,13 @@ public class YatzyScoring {
     }
 
     public static int smallStraight(YatzyDiceRoll diceRoll) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[diceRoll.getD1() - 1] += 1;
-        tallies[diceRoll.getD2() - 1] += 1;
-        tallies[diceRoll.getD3() - 1] += 1;
-        tallies[diceRoll.getD4() - 1] += 1;
-        tallies[diceRoll.getD5() - 1] += 1;
-        if (tallies[0] == 1 &&
-                tallies[1] == 1 &&
-                tallies[2] == 1 &&
-                tallies[3] == 1 &&
-                tallies[4] == 1)
+        int[] smallStraightReference = {1, 2, 3, 4, 5};
+        int[] diceAsOrderedArray = YatzyDiceRollUtils.getDiceAsOrderedArray(diceRoll);
+
+        if (Arrays.equals(smallStraightReference, diceAsOrderedArray)) {
             return 15;
+        }
+
         return 0;
     }
 
