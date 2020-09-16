@@ -13,15 +13,13 @@ public class YatzyScoring {
     }
 
     public static int yatzy(YatzyDiceRoll diceRoll) {
-        int dieRef = diceRoll.getD1();
+        TreeSet<Integer> yatzyValues = YatzyDiceRollUtils.extractAndSortNValues(5, diceRoll);
 
-        for (int die : YatzyDiceRollUtils.getDiceAsArray(diceRoll)) {
-            if (die != dieRef) {
-                return 0;
-            }
+        if(yatzyValues.size() == 1) {
+            return 50;
         }
 
-        return 50;
+        return 0;
     }
 
     public static int ones(YatzyDiceRoll diceRoll) {
