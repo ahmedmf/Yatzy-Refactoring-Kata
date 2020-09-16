@@ -23,4 +23,14 @@ public class YatzyDiceRollUtils {
 
         return total;
     }
+
+    public static int[] getDiceAsArray(YatzyDiceRoll diceRoll) {
+        return new int[]{
+                diceRoll.getD1(),
+                diceRoll.getD2(),
+                diceRoll.getD3(),
+                diceRoll.getD4(),
+                diceRoll.getD5()
+        };
+    }
 }
