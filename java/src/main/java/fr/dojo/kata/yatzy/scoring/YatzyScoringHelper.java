@@ -73,13 +73,8 @@ public class YatzyScoringHelper {
         return getScoreFromValue(4, diceRoll);
     }
 
-    public int fives() {
-        int s = 0;
-        int i;
-        for (i = 0; i < dice.length; i++)
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
+    public static int fives(YatzyDiceRoll diceRoll) {
+        return getScoreFromValue(5, diceRoll);
     }
 
     public int sixes() {
