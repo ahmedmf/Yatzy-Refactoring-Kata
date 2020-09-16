@@ -33,4 +33,26 @@ public class YatzyDiceRollUtils {
                 diceRoll.getD5()
         };
     }
+
+    public static boolean hasPairOfValue(int i, YatzyDiceRoll diceRoll) {
+        int count = getValueCountFromDiceRoll(i, diceRoll);
+
+        if (count >= 2) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static int getValueCountFromDiceRoll(int value, YatzyDiceRoll diceRoll) {
+        int count = 0;
+
+        for (int i : YatzyDiceRollUtils.getDiceAsArray(diceRoll)) {
+            if (i == value) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }

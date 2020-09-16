@@ -48,16 +48,12 @@ public class YatzyScoring {
     }
 
     public static int scorePair(YatzyDiceRoll diceRoll) {
-        int[] counts = new int[6];
-        counts[diceRoll.getD1() - 1]++;
-        counts[diceRoll.getD2() - 1]++;
-        counts[diceRoll.getD3() - 1]++;
-        counts[diceRoll.getD4() - 1]++;
-        counts[diceRoll.getD5() - 1]++;
-        int at;
-        for (at = 0; at != 6; at++)
-            if (counts[6 - at - 1] >= 2)
-                return (6 - at) * 2;
+        for (int i = 6; i > 0; i--) {
+            if (YatzyDiceRollUtils.hasPairOfValue(i, diceRoll)) {
+                return i + i;
+            }
+        }
+
         return 0;
     }
 
