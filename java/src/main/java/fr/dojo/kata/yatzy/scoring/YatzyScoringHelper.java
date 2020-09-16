@@ -4,17 +4,6 @@ import fr.dojo.kata.yatzy.YatzyDiceRoll;
 
 public class YatzyScoringHelper {
 
-    protected int[] dice;
-
-    public YatzyScoringHelper(int d1, int d2, int d3, int d4, int _5) {
-        dice = new int[5];
-        dice[0] = d1;
-        dice[1] = d2;
-        dice[2] = d3;
-        dice[3] = d4;
-        dice[4] = _5;
-    }
-
     public static int chance(YatzyDiceRoll diceRoll) {
         int total = 0;
         total += diceRoll.getD1();
