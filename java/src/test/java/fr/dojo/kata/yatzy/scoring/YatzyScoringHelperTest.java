@@ -44,7 +44,6 @@ public class YatzyScoringHelperTest {
 
         // Assert
         assertEquals(expected, actual);
-        assertEquals(expected, YatzyScoringHelper.yatzy(diceRoll));
     }
 
     // Paramètres du test
@@ -92,7 +91,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testTwosParams")
     public void testTwos(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.twos(diceRoll));
+        int actual = YatzyScoringHelper.twos(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testTwosParams() {
@@ -105,7 +105,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testThreesParams")
     public void testThrees(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.threes(diceRoll));
+        int actual = YatzyScoringHelper.threes(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testThreesParams() {
@@ -118,7 +119,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testFoursParams")
     public void testFours(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.fours(diceRoll));
+        int actual = YatzyScoringHelper.fours(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testFoursParams() {
@@ -132,7 +134,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testFivesParams")
     public void testFives(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.fives(diceRoll));
+        int actual = YatzyScoringHelper.fives(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testFivesParams() {
@@ -146,7 +149,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testSixesParams")
     public void testSixes(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.sixes(diceRoll));
+        int actual = YatzyScoringHelper.sixes(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testSixesParams() {
@@ -160,7 +164,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testOnePairParams")
     public void testOnePair(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.scorePair(diceRoll));
+        int actual = YatzyScoringHelper.scorePair(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testOnePairParams() {
@@ -174,7 +179,8 @@ public class YatzyScoringHelperTest {
     @Test
     @Parameters(method = "testTwoPairParams")
     public void testTwoPair(int expected, YatzyDiceRoll diceRoll) {
-        assertEquals(expected, YatzyScoringHelper.twoPair(diceRoll));
+        int actual = YatzyScoringHelper.twoPair(diceRoll);
+        assertEquals(expected, actual);
     }
 
     public Object testTwoPairParams() {
@@ -185,36 +191,77 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testThreeOfAKind() {
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 4, 5)));
-        assertEquals(15, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(5, 3, 5, 4, 5)));
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 5)));
+    @Parameters(method = "testThreeOfAKindParams")
+    public void testThreeOfAKind(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.threeOfAKind(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testThreeOfAKindParams() {
+        return new Object[]{
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 4, 5)},
+                new Object[]{15, new YatzyDiceRoll(5, 3, 5, 4, 5)},
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 5)},
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 3)}
+        };
     }
 
     @Test
-    public void testFourOfAKind() {
-        assertEquals(12, YatzyScoringHelper.fourOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 5)));
-        assertEquals(20, YatzyScoringHelper.fourOfAKind(new YatzyDiceRoll(5, 5, 5, 4, 5)));
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 3)));
+    @Parameters(method = "testFourOfAKindParams")
+    public void testFourOfAKind(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.fourOfAKind(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testFourOfAKindParams() {
+        return new Object[]{
+                new Object[]{12, new YatzyDiceRoll(3, 3, 3, 3, 5)},
+                new Object[]{20, new YatzyDiceRoll(5, 5, 5, 4, 5)},
+                new Object[]{12, new YatzyDiceRoll(3, 3, 3, 3, 3)}
+        };
     }
 
     @Test
-    public void testSmallStraight() {
-        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1, 2, 3, 4, 5)));
-        assertEquals(15, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(2, 3, 4, 5, 1)));
-        assertEquals(0, YatzyScoringHelper.smallStraight(new YatzyDiceRoll(1, 2, 2, 4, 5)));
+    @Parameters(method = "testSmallStraightParams")
+    public void testSmallStraight(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.smallStraight(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testSmallStraightParams() {
+        return new Object[]{
+                new Object[]{15, new YatzyDiceRoll(1, 2, 3, 4, 5)},
+                new Object[]{15, new YatzyDiceRoll(2, 3, 4, 5, 1)},
+                new Object[]{0, new YatzyDiceRoll(1, 2, 2, 4, 5)}
+        };
     }
 
     @Test
-    public void testLargeStraight() {
-        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(6, 2, 3, 4, 5)));
-        assertEquals(20, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(2, 3, 4, 5, 6)));
-        assertEquals(0, YatzyScoringHelper.largeStraight(new YatzyDiceRoll(1, 2, 2, 4, 5)));
+    @Parameters(method = "testLargeStraightParams")
+    public void testLargeStraight(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.largeStraight(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testLargeStraightParams() {
+        return new Object[]{
+                new Object[]{20, new YatzyDiceRoll(6, 2, 3, 4, 5)},
+                new Object[]{20, new YatzyDiceRoll(2, 3, 4, 5, 6)},
+                new Object[]{0, new YatzyDiceRoll(1, 2, 2, 4, 5)}
+        };
     }
 
     @Test
-    public void testFullHouse() {
-        assertEquals(18, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(6, 2, 2, 2, 6)));
-        assertEquals(0, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(2, 3, 4, 5, 6)));
+    @Parameters(method = "testFullHouseParams")
+    public void testFullHouse(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.fullHouse(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testFullHouseParams() {
+        return new Object[]{
+                new Object[]{18, new YatzyDiceRoll(6, 2, 2, 2, 6)},
+                new Object[]{0, new YatzyDiceRoll(2, 3, 4, 5, 6)}
+        };
     }
 }
