@@ -193,15 +193,23 @@ public class YatzyScoringHelperTest {
         return new Object[]{
                 new Object[]{9, new YatzyDiceRoll(3, 3, 3, 4, 5)},
                 new Object[]{15, new YatzyDiceRoll(5, 3, 5, 4, 5)},
-                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 5)}
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 5)},
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 3)}
         };
     }
 
     @Test
-    public void testFourOfAKind() {
-        assertEquals(12, YatzyScoringHelper.fourOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 5)));
-        assertEquals(20, YatzyScoringHelper.fourOfAKind(new YatzyDiceRoll(5, 5, 5, 4, 5)));
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 3)));
+    @Parameters(method = "testFourOfAKindParams")
+    public void testFourOfAKind(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.fourOfAKind(diceRoll);
+        assertEquals(expected, actual);
+    }
+    public Object testFourOfAKindParams() {
+        return new Object[]{
+                new Object[]{12, new YatzyDiceRoll(3, 3, 3, 3, 5)},
+                new Object[]{20, new YatzyDiceRoll(5, 5, 5, 4, 5)},
+                new Object[]{12, new YatzyDiceRoll(3, 3, 3, 3, 3)}
+        };
     }
 
     @Test
