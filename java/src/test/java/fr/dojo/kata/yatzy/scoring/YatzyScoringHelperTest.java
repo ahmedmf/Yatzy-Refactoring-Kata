@@ -246,8 +246,16 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testFullHouse() {
-        assertEquals(18, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(6, 2, 2, 2, 6)));
-        assertEquals(0, YatzyScoringHelper.fullHouse(new YatzyDiceRoll(2, 3, 4, 5, 6)));
+    @Parameters(method = "testFullHouseParams")
+    public void testFullHouse(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.fullHouse(diceRoll);
+        assertEquals(expected, actual);
+    }
+
+    public Object testFullHouseParams() {
+        return new Object[]{
+                new Object[]{18, new YatzyDiceRoll(6, 2, 2, 2, 6)},
+                new Object[]{0, new YatzyDiceRoll(2, 3, 4, 5, 6)}
+        };
     }
 }
