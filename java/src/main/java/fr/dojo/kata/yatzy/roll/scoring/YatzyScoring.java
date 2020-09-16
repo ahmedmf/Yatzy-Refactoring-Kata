@@ -3,6 +3,10 @@ package fr.dojo.kata.yatzy.roll.scoring;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRoll;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRollUtils;
 
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 public class YatzyScoring {
 
     public static int chance(YatzyDiceRoll diceRoll) {
@@ -56,23 +60,22 @@ public class YatzyScoring {
     }
 
     public static int twoPair(YatzyDiceRoll diceRoll) {
-        int[] counts = new int[6];
-        counts[diceRoll.getD1() - 1]++;
-        counts[diceRoll.getD2() - 1]++;
-        counts[diceRoll.getD3() - 1]++;
-        counts[diceRoll.getD4() - 1]++;
-        counts[diceRoll.getD5() - 1]++;
-        int n = 0;
-        int score = 0;
-        for (int i = 0; i < 6; i += 1)
-            if (counts[6 - i - 1] >= 2) {
-                n++;
-                score += (6 - i);
+        TreeSet<Integer> pairValues = new TreeSet<>();
+
+        for(int i = 6; i > 0; i--) {
+            if(YatzyDiceRollUtils.hasPairOfValue(i, diceRoll)) {
+                pairValues.add(i);
             }
-        if (n == 2)
-            return score * 2;
-        else
+        }
+
+        if (pairValues.size() < 2) {
             return 0;
+        }
+
+        int highestPair = pairValues.pollLast();
+        int secondPair = pairValues.pollLast();
+
+        return highestPair + highestPair + secondPair + secondPair;
     }
 
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {
