@@ -262,7 +262,8 @@ public class YatzyScoringTest {
     public Object testFullHouseParams() {
         return new Object[]{
                 new Object[]{18, new YatzyDiceRoll(6, 2, 2, 2, 6)},
-                new Object[]{0, new YatzyDiceRoll(2, 3, 4, 5, 6)}
+                new Object[]{0, new YatzyDiceRoll(2, 3, 4, 5, 6)},
+                new Object[]{0, new YatzyDiceRoll(4, 4, 4, 4, 4)}
         };
     }
 }

@@ -120,37 +120,30 @@ public class YatzyScoring {
     }
 
     public static int fullHouse(YatzyDiceRoll diceRoll) {
-        int[] tallies;
-        boolean _2 = false;
-        int i;
-        int _2_at = 0;
-        boolean _3 = false;
-        int _3_at = 0;
+        TreeSet<Integer> yatzyValues = YatzyDiceRollUtils.extractAndSortNValues(5, diceRoll);
+        TreeSet<Integer> tripletValues = YatzyDiceRollUtils.extractAndSortNValues(3, diceRoll);
+        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortNValues(2, diceRoll);
 
-
-        tallies = new int[6];
-        tallies[diceRoll.getD1() - 1] += 1;
-        tallies[diceRoll.getD2() - 1] += 1;
-        tallies[diceRoll.getD3() - 1] += 1;
-        tallies[diceRoll.getD4() - 1] += 1;
-        tallies[diceRoll.getD5() - 1] += 1;
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 2) {
-                _2 = true;
-                _2_at = i + 1;
-            }
-
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 3) {
-                _3 = true;
-                _3_at = i + 1;
-            }
-
-        if (_2 && _3)
-            return _2_at * 2 + _3_at * 3;
-        else
+        if(yatzyValues.size() == 1) {
             return 0;
+        }
+
+        if (tripletValues.size() < 1) {
+            return 0;
+        }
+
+        if (pairValues.size() < 1) {
+            return 0;
+        }
+
+        int tripletValue = tripletValues.pollLast();
+        int pairValue = pairValues.pollLast();
+
+        if (pairValue == tripletValue) {
+            pairValue = pairValues.pollLast();
+        }
+
+        return 3 * tripletValue + 2 * pairValue;
     }
 }
 
