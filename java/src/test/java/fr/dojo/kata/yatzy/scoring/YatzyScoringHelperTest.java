@@ -164,9 +164,15 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testTwoPair() {
-        assertEquals(16, YatzyScoringHelper.twoPair(new YatzyDiceRoll(3,3,5,4,5)));
-        assertEquals(16, YatzyScoringHelper.twoPair(new YatzyDiceRoll(3,3,5,5,5)));
+    @Parameters(method = "testTwoPairParams")
+    public void testTwoPair(int expected, YatzyDiceRoll diceRoll) {
+        assertEquals(expected, YatzyScoringHelper.twoPair(diceRoll));
+    }
+    public Object testTwoPairParams() {
+        return new Object[] {
+                new Object[] {16, new YatzyDiceRoll(3,3,5,4,5)},
+                new Object[] {16, new YatzyDiceRoll(3,3,5,5,5)}
+        };
     }
 
     @Test
