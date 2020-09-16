@@ -1,6 +1,7 @@
 package fr.dojo.kata.yatzy.roll.scoring;
 
 import fr.dojo.kata.yatzy.roll.YatzyDiceRoll;
+import fr.dojo.kata.yatzy.roll.YatzyDiceRollUtils;
 
 public class YatzyScoring {
 
@@ -34,40 +35,28 @@ public class YatzyScoring {
         return 50;
     }
 
-    private static int getScoreFromValue(int value, YatzyDiceRoll diceRoll) {
-        int count = 0;
-
-        for (int die : diceRoll.getDiceAsArray()) {
-            if (die == value) {
-                count++;
-            }
-        }
-
-        return count * value;
-    }
-
     public static int ones(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(1, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(1, diceRoll);
     }
 
     public static int twos(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(2, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(2, diceRoll);
     }
 
     public static int threes(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(3, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(3, diceRoll);
     }
 
     public static int fours(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(4, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(4, diceRoll);
     }
 
     public static int fives(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(5, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(5, diceRoll);
     }
 
     public static int sixes(YatzyDiceRoll diceRoll) {
-        return getScoreFromValue(6, diceRoll);
+        return YatzyDiceRollUtils.getScoreFromValue(6, diceRoll);
     }
 
     public static int scorePair(YatzyDiceRoll diceRoll) {
