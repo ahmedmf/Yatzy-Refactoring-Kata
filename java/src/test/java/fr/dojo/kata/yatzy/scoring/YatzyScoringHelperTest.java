@@ -112,11 +112,17 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testFours()
+    @Parameters(method = "testFoursParams")
+    public void testFours(int expected, YatzyDiceRoll diceRoll)
     {
-        assertEquals(12, new YatzyScoringHelper(4,4,4,5,5).fours());
-        assertEquals(8, new YatzyScoringHelper(4,4,5,5,5).fours());
-        assertEquals(4, new YatzyScoringHelper(4,5,5,5,5).fours());
+        assertEquals(expected, YatzyScoringHelper.fours(diceRoll));
+    }
+    public Object testFoursParams() {
+        return new Object[] {
+                new Object[] {12, new YatzyDiceRoll(4,4,4,5,5)},
+                new Object[] {8, new YatzyDiceRoll(4,4,5,5,5)},
+                new Object[] {4, new YatzyDiceRoll(4,5,5,5,5)}
+        };
     }
 
     @Test

@@ -69,6 +69,27 @@ public class YatzyScoringHelper {
         return getScoreFromValue(3, diceRoll);
     }
 
+    public static int fours(YatzyDiceRoll diceRoll) {
+        return getScoreFromValue(4, diceRoll);
+    }
+
+    public int fives() {
+        int s = 0;
+        int i;
+        for (i = 0; i < dice.length; i++)
+            if (dice[i] == 5)
+                s = s + 5;
+        return s;
+    }
+
+    public int sixes() {
+        int sum = 0;
+        for (int at = 0; at < dice.length; at++)
+            if (dice[at] == 6)
+                sum = sum + 6;
+        return sum;
+    }
+
     public static int score_pair(int d1, int d2, int d3, int d4, int d5) {
         int[] counts = new int[6];
         counts[d1 - 1]++;
@@ -199,33 +220,7 @@ public class YatzyScoringHelper {
             return 0;
     }
 
-    public int fours() {
-        int sum;
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
-    }
 
-    public int fives() {
-        int s = 0;
-        int i;
-        for (i = 0; i < dice.length; i++)
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
-    }
-
-    public int sixes() {
-        int sum = 0;
-        for (int at = 0; at < dice.length; at++)
-            if (dice[at] == 6)
-                sum = sum + 6;
-        return sum;
-    }
 }
 
 
