@@ -176,7 +176,6 @@ public class YatzyScoringHelperTest {
     public void testTwoPair(int expected, YatzyDiceRoll diceRoll) {
         assertEquals(expected, YatzyScoringHelper.twoPair(diceRoll));
     }
-
     public Object testTwoPairParams() {
         return new Object[]{
                 new Object[]{16, new YatzyDiceRoll(3, 3, 5, 4, 5)},
@@ -185,10 +184,17 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testThreeOfAKind() {
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 4, 5)));
-        assertEquals(15, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(5, 3, 5, 4, 5)));
-        assertEquals(9, YatzyScoringHelper.threeOfAKind(new YatzyDiceRoll(3, 3, 3, 3, 5)));
+    @Parameters(method = "testThreeOfAKindParams")
+    public void testThreeOfAKind(int expected, YatzyDiceRoll diceRoll) {
+        int actual = YatzyScoringHelper.threeOfAKind(diceRoll);
+        assertEquals(expected, actual);
+    }
+    public Object testThreeOfAKindParams() {
+        return new Object[]{
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 4, 5)},
+                new Object[]{15, new YatzyDiceRoll(5, 3, 5, 4, 5)},
+                new Object[]{9, new YatzyDiceRoll(3, 3, 3, 3, 5)}
+        };
     }
 
     @Test
