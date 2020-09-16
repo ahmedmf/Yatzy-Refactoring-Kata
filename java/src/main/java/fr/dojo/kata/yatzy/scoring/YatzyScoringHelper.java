@@ -65,15 +65,8 @@ public class YatzyScoringHelper {
         return getScoreFromValue(2, diceRoll);
     }
 
-    public static int threes(int d1, int d2, int d3, int d4, int d5) {
-        int s;
-        s = 0;
-        if (d1 == 3) s += 3;
-        if (d2 == 3) s += 3;
-        if (d3 == 3) s += 3;
-        if (d4 == 3) s += 3;
-        if (d5 == 3) s += 3;
-        return s;
+    public static int threes(YatzyDiceRoll diceRoll) {
+        return getScoreFromValue(3, diceRoll);
     }
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5) {

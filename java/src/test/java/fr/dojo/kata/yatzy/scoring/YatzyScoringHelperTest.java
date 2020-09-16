@@ -100,9 +100,15 @@ public class YatzyScoringHelperTest {
     }
 
     @Test
-    public void testThrees() {
-        assertEquals(6, YatzyScoringHelper.threes(1,2,3,2,3));
-        assertEquals(12, YatzyScoringHelper.threes(2,3,3,3,3));
+    @Parameters(method = "testThreesParams")
+    public void testThrees(int expected, YatzyDiceRoll diceRoll) {
+        assertEquals(expected, YatzyScoringHelper.threes(diceRoll));
+    }
+    public Object testThreesParams() {
+        return new Object[] {
+                new Object[] {6, new YatzyDiceRoll(1,2,3,2,3)},
+                new Object[] {12, new YatzyDiceRoll(2,3,3,3,3)}
+        };
     }
 
     @Test
