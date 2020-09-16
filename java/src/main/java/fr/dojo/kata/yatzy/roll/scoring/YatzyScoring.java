@@ -56,7 +56,7 @@ public class YatzyScoring {
 
         int highestPairValue = pairValues.pollLast();
 
-        return highestPairValue + highestPairValue;
+        return 2 * highestPairValue;
     }
 
     public static int twoPair(YatzyDiceRoll diceRoll) {
@@ -69,7 +69,7 @@ public class YatzyScoring {
         int highestPairValue = pairValues.pollLast();
         int secondPairValue = pairValues.pollLast();
 
-        return highestPairValue + highestPairValue + secondPairValue + secondPairValue;
+        return 2 * highestPairValue + 2 * secondPairValue;
     }
 
     public static int threeOfAKind(YatzyDiceRoll diceRoll) {
@@ -81,7 +81,7 @@ public class YatzyScoring {
 
         int highestTripletValue = tripletValues.pollLast();
 
-        return highestTripletValue + highestTripletValue + highestTripletValue;
+        return 3 * highestTripletValue;
     }
 
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {
@@ -93,7 +93,7 @@ public class YatzyScoring {
 
         int highestQuadrupletValue = quadrupletValues.pollLast();
 
-        return highestQuadrupletValue + highestQuadrupletValue + highestQuadrupletValue + highestQuadrupletValue;
+        return 4 * highestQuadrupletValue;
     }
 
     public static int smallStraight(YatzyDiceRoll diceRoll) {
