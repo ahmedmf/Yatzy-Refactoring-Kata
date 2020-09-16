@@ -3,8 +3,6 @@ package fr.dojo.kata.yatzy.roll.scoring;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRoll;
 import fr.dojo.kata.yatzy.roll.YatzyDiceRollUtils;
 
-import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class YatzyScoring {
@@ -50,32 +48,28 @@ public class YatzyScoring {
     }
 
     public static int scorePair(YatzyDiceRoll diceRoll) {
-        for (int i = 6; i > 0; i--) {
-            if (YatzyDiceRollUtils.hasPairOfValue(i, diceRoll)) {
-                return i + i;
-            }
+        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortPairValues(diceRoll);
+
+        if (pairValues.size() < 1) {
+            return 0;
         }
 
-        return 0;
+        int highestPairValue = pairValues.pollLast();
+
+        return highestPairValue + highestPairValue;
     }
 
     public static int twoPair(YatzyDiceRoll diceRoll) {
-        TreeSet<Integer> pairValues = new TreeSet<>();
-
-        for(int i = 6; i > 0; i--) {
-            if(YatzyDiceRollUtils.hasPairOfValue(i, diceRoll)) {
-                pairValues.add(i);
-            }
-        }
+        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortPairValues(diceRoll);
 
         if (pairValues.size() < 2) {
             return 0;
         }
 
-        int highestPair = pairValues.pollLast();
-        int secondPair = pairValues.pollLast();
+        int highestPairValue = pairValues.pollLast();
+        int secondPairValue = pairValues.pollLast();
 
-        return highestPair + highestPair + secondPair + secondPair;
+        return highestPairValue + highestPairValue + secondPairValue + secondPairValue;
     }
 
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {

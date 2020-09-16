@@ -1,5 +1,7 @@
 package fr.dojo.kata.yatzy.roll;
 
+import java.util.TreeSet;
+
 public class YatzyDiceRollUtils {
     public static int getScoreFromValue(int value, YatzyDiceRoll diceRoll) {
         int count = 0;
@@ -54,5 +56,16 @@ public class YatzyDiceRollUtils {
         }
 
         return count;
+    }
+
+    public static TreeSet<Integer> extractAndSortPairValues(YatzyDiceRoll diceRoll) {
+        TreeSet<Integer> pairValues = new TreeSet<>();
+
+        for(int i = 6; i > 0; i--) {
+            if(hasPairOfValue(i, diceRoll)) {
+                pairValues.add(i);
+            }
+        }
+        return pairValues;
     }
 }
