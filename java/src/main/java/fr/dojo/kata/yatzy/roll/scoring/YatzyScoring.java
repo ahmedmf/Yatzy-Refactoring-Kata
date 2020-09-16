@@ -48,7 +48,7 @@ public class YatzyScoring {
     }
 
     public static int scorePair(YatzyDiceRoll diceRoll) {
-        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortPairValues(diceRoll);
+        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortNValues(2, diceRoll);
 
         if (pairValues.size() < 1) {
             return 0;
@@ -60,7 +60,7 @@ public class YatzyScoring {
     }
 
     public static int twoPair(YatzyDiceRoll diceRoll) {
-        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortPairValues(diceRoll);
+        TreeSet<Integer> pairValues = YatzyDiceRollUtils.extractAndSortNValues(2, diceRoll);
 
         if (pairValues.size() < 2) {
             return 0;
@@ -70,20 +70,6 @@ public class YatzyScoring {
         int secondPairValue = pairValues.pollLast();
 
         return highestPairValue + highestPairValue + secondPairValue + secondPairValue;
-    }
-
-    public static int fourOfAKind(YatzyDiceRoll diceRoll) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[diceRoll.getD1() - 1]++;
-        tallies[diceRoll.getD2() - 1]++;
-        tallies[diceRoll.getD3() - 1]++;
-        tallies[diceRoll.getD4() - 1]++;
-        tallies[diceRoll.getD5() - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (tallies[i] >= 4)
-                return (i + 1) * 4;
-        return 0;
     }
 
     public static int threeOfAKind(YatzyDiceRoll diceRoll) {
@@ -97,6 +83,20 @@ public class YatzyScoring {
         for (int i = 0; i < 6; i++)
             if (t[i] >= 3)
                 return (i + 1) * 3;
+        return 0;
+    }
+
+    public static int fourOfAKind(YatzyDiceRoll diceRoll) {
+        int[] tallies;
+        tallies = new int[6];
+        tallies[diceRoll.getD1() - 1]++;
+        tallies[diceRoll.getD2() - 1]++;
+        tallies[diceRoll.getD3() - 1]++;
+        tallies[diceRoll.getD4() - 1]++;
+        tallies[diceRoll.getD5() - 1]++;
+        for (int i = 0; i < 6; i++)
+            if (tallies[i] >= 4)
+                return (i + 1) * 4;
         return 0;
     }
 

@@ -36,10 +36,10 @@ public class YatzyDiceRollUtils {
         };
     }
 
-    public static boolean hasPairOfValue(int i, YatzyDiceRoll diceRoll) {
-        int count = getValueCountFromDiceRoll(i, diceRoll);
+    public static boolean hasNValues(int value, int n, YatzyDiceRoll diceRoll) {
+        int count = getValueCountFromDiceRoll(value, diceRoll);
 
-        if (count >= 2) {
+        if (count >= n) {
             return true;
         }
 
@@ -58,14 +58,14 @@ public class YatzyDiceRollUtils {
         return count;
     }
 
-    public static TreeSet<Integer> extractAndSortPairValues(YatzyDiceRoll diceRoll) {
-        TreeSet<Integer> pairValues = new TreeSet<>();
+    public static TreeSet<Integer> extractAndSortNValues(int n, YatzyDiceRoll diceRoll) {
+        TreeSet<Integer> nValues = new TreeSet<>();
 
         for(int i = 6; i > 0; i--) {
-            if(hasPairOfValue(i, diceRoll)) {
-                pairValues.add(i);
+            if(hasNValues(i, n, diceRoll)) {
+                nValues.add(i);
             }
         }
-        return pairValues;
+        return nValues;
     }
 }
