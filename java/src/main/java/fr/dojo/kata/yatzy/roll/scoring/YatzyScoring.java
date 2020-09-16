@@ -85,17 +85,15 @@ public class YatzyScoring {
     }
 
     public static int fourOfAKind(YatzyDiceRoll diceRoll) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[diceRoll.getD1() - 1]++;
-        tallies[diceRoll.getD2() - 1]++;
-        tallies[diceRoll.getD3() - 1]++;
-        tallies[diceRoll.getD4() - 1]++;
-        tallies[diceRoll.getD5() - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (tallies[i] >= 4)
-                return (i + 1) * 4;
-        return 0;
+        TreeSet<Integer> quadrupletValues = YatzyDiceRollUtils.extractAndSortNValues(4, diceRoll);
+
+        if (quadrupletValues.size() < 1) {
+            return 0;
+        }
+
+        int highestQuadrupletValue = quadrupletValues.pollLast();
+
+        return highestQuadrupletValue + highestQuadrupletValue + highestQuadrupletValue + highestQuadrupletValue;
     }
 
     public static int smallStraight(YatzyDiceRoll diceRoll) {
