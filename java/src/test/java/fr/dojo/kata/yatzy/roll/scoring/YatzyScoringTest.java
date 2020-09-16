@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
 @RunWith(JUnitParamsRunner.class)
 public class YatzyScoringTest {
 
-    // TODO : Tester la levée d'exception lorsque la valeur des dés sors de l'interval [0:6]
+    // TODO : Tester la levée d'exception lorsque la valeur des dés sors de l'interval [1:6]
+    // TODO : Tester les invariants et les cas aux limites
 
     @Test
     @Parameters(method = "testChanceScoresSumOfAllDiceParams")
